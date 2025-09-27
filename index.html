@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Archimedes' Calculator</title>
+</head>
+<body>
 
+    <div class="main">
+        <h1>Archimedes' Calculator</h1>
+        <div class="divisor">
+            <div class="topnav">
+                    <div class="tools">
+                        <button class="dropdown-button">Tools</button>
+                        <div class="tools-content">
+                        <a href="">Basic</a> |
+                        <a href="">Mechanics</a> |
+                        <a href="">Materials</a> |
+                        <a href="">Thermodynamics</a> |
+                        <a href="">Electrical</a> |
+                        <a href="">Fluids</a> |
+                        </div>
+                    </div>
+                    |
+                    <a href="">Configurations</a>
+            </div>
+            <div class="calculator">
+                <div class="calculator-display">
+                <p id="display-info">mode: basic</p>
+                <p id="calc">0</p>
+                <p id="result">test</p>
+                </div>
+                <div class="keyboard">
+                    <button onclick="basic('&radic;');">&radic;</button>
+                    <button onclick="basic('/');">&divide;</button>
+                    <button onclick="basic('*');">*</button>
+                    <button onclick="basic('-');">&minus;</button>
+                    <br />
+                    <button onclick="basic('9');">9</button>
+                    <button onclick="basic('8');">8</button>
+                    <button onclick="basic('7');">7</button>
+                    <button onclick="basic('+');">&plus;</button>
+                    <br />
+                    <button onclick="basic('6');">6</button>
+                    <button onclick="basic('5');">5</button>
+                    <button onclick="basic('4');">4</button>
+                    <button onclick="basic('%');">%</button>
+                    <br />
+                    <button onclick="basic('3');">3</button>
+                    <button onclick="basic('2');">2</button>
+                    <button onclick="basic('1');">1</button>
+                    <button onclick="basic('.');">.</button>
+                    <br />
+                    <button onclick="basic('CE');">CE</button>
+                    <button onclick="basic('0');">0</button>
+                    <button onclick="basic('DEL');">DEL</button>
+                    <button onclick="basic('=');">=</button>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <p class="subtext">&copy;2025 A mobile prototype engineering calculator by P. Caio</p>
+    </div>
+</body>
+</html>
