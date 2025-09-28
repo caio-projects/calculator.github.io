@@ -26,17 +26,30 @@
     </div>
     <p>Mechanical Eng. Calculator Prototype <button onclick="SideNavManager('open');">Tools</button></p>
     <div class="dropdown">
-        <div class="dropdown-topnav">Force/Mass/Acceleration</div>
+        <div class="dropdown-topnav">Force = mass*acceleration</div>
         <div class="dropdown-content" id="force-dropdown" style="display:none;">
-            <p>Force = mass * acceleration</p>
-            Force:<input type="number" id="force" value="0"><br/>
-            Mass:<input type="number" id="mass" value="0"><br/>
-            Acceleration:<input type="number" id="acceleration" value="0">
+            Force:<input type="number" onchange="Calculate();" id="force" value="0"><br/>
+            Mass:<input type="number" onchange="Calculate();" id="mass" value="0"><br/>
+            Acceleration:<input type="number" onchange="Calculate();" id="acceleration" value="0">
         </div>
     </div>
     <div class="dropdown">
-        <div class="dropdown-topnav">Work</div>
-        <div class="dropdown-content" style="display:none;" id="force-dropdown"></div>
+        <div class="dropdown-topnav">Work = F*d*cos(theta)</div>
+        <div class="dropdown-content" id="force-dropdown" style="display:none;">
+            Work:<input type="number" onchange="Calculate();" id="work" value="0"><br/>
+            Force:<input type="number" onchange="Calculate();"id="force" value="0"><br/>
+            Distance:<input type="number" onchange="Calculate();" id="distance" value="0"><br/> 
+            Angle:<input type="number" onchange="Calculate();" id="angle" value="90">  
+
+        </div>
+    </div>
+    <div class="dropdown">
+        <div class="dropdown-topnav">Power = work / time</div>
+        <div class="dropdown-content" id="force-dropdown">
+            Power<input type="number" onchange="Calculate();" id="power" value="0"><br/>
+            Work<input type="number" onchange="Calculate();" id="work" value="0"><br/>
+            Time<input type="number" onchange="Calculate();"  id="time" value="0"><br/> 
+        </div>
     </div>
     <p>&copy;2025 P. Caio S. Lima</p>
 </body>
