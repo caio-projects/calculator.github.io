@@ -24,7 +24,7 @@
           </select> Section
         </h5>
         <br/>
-      <div style="display:none;" id="general-mechanics-calculation-area" class="calculations-area">
+      <div id="general-mechanics-calculation-area" class="calculations-area">
         <!-- Mass -->
         <label>Mass
           <select id="1mass-unit">
@@ -141,7 +141,7 @@
             <p id="bernoulli-result">P₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂</p>
         </div>
       </div>
-      <div id="volumetric-flow-rate-calculation-area" class="calculation-area">
+      <div style="display:none;" id="volumetric-flow-rate-calculation-area" class="calculation-area">
         <h3>Volumetric Flow Rate Q <h5>(leave the unknown variable empty)</h5></h3>
         <hr>
 
@@ -172,14 +172,22 @@
   <script>
     function CalculationArea(){
       var bernoulli = document.getElementById("fluid-bernoulli-calculation-area");
+      var flowrate = document.getElementById("volumetric-flow-rate-calculation-area");
       var general = document.getElementById("general-mechanics-calculation-area");
+
       var selector = document.getElementById("calculation-area-selector").value;
       if(selector == "general"){
         general.style.display = "block";
         bernoulli.style.display = "none";
+        flowrate.style.display = "none";
       } else if(selector == "fluids1"){
         general.style.display = "none";
         bernoulli.style.display = "block";
+        flowrate.style.display = "none";
+      } else if(selector == "fluids2"){
+        general.style.display = "none";
+        bernoulli.style.display = "none";
+        flowrate.style.display = "block";
       }
     }
   </script>
