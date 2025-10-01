@@ -1,15 +1,15 @@
 function Calculate(){
-    var mass         = document.getElementById("mass").value;
-    var acceleration = document.getElementById("acceleration").value;
-    var distance     = document.getElementById("distance").value;
-    var angle        = document.getElementById("angle").value;
-    var time         = document.getElementById("time").value;
+    var mass         = document.getElementById("1mass").value;
+    var acceleration = document.getElementById("1acceleration").value;
+    var distance     = document.getElementById("1distance").value;
+    var angle        = document.getElementById("1angle").value;
+    var time         = document.getElementById("1time").value;
 
-    var massunit         = document.getElementById("mass-unit").value; 
-    var accelerationunit = document.getElementById("acceleration-unit").value; 
-    var distanceunit     = document.getElementById("distance-unit").value; 
-    var angleunit        = document.getElementById("angle-unit").value; 
-    var timeunit         = document.getElementById("time-unit").value; 
+    var massunit         = document.getElementById("1mass-unit").value; 
+    var accelerationunit = document.getElementById("1acceleration-unit").value; 
+    var distanceunit     = document.getElementById("1distance-unit").value; 
+    var angleunit        = document.getElementById("1angle-unit").value; 
+    var timeunit         = document.getElementById("1time-unit").value; 
 
     if(massunit == "t"){
         mass = mass * 1000;
@@ -77,10 +77,10 @@ function Calculate(){
     console.log(distance/time);
     console.log(velocity);
 
-    document.getElementById("force").textContent = "Force = "+force.toFixed(2)+" N";             // Newtons
-    document.getElementById("work").textContent = "Work = "+work.toFixed(2)+" J";               // Joules
-    document.getElementById("power").textContent = "Power = "+power.toFixed(2)+" W";           // Watts
-    document.getElementById("velocity").textContent = "Velocity = "+velocity.toFixed(2)+" m/s"; // meters per second
-    document.getElementById("kinetic-energy").textContent = "Kinetic Energy = "+kineticenergy.toFixed(2)+" J"; // Joules
-    document.getElementById("torque").textContent = "Torque = "+torque.toFixed(2)+" N·m";       // Newton-meters
+    document.getElementById("1force-result").textContent = "Force = "+force.toFixed(2)+" N";             // Newtons
+    document.getElementById("1work-result").textContent = "Work = "+work.toFixed(2)+" J";               // Joules
+    document.getElementById("1power-result").textContent = "Power = "+power.toFixed(2)+" W";           // Watts
+    document.getElementById("1velocity-result").textContent = "Velocity = "+velocity.toFixed(2)+" m/s"; // meters per second
+    document.getElementById("1kinetic-energy-result").textContent = "Kinetic Energy = "+kineticenergy.toFixed(2)+" J"; // Joules
+    document.getElementById("1torque-result").textContent = "Torque = "+torque.toFixed(2)+" N·m";       // Newton-meters
 }

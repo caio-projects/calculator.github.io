@@ -14,7 +14,8 @@
         <h5 style="text-align:center;">
           <select onchange="CalculationArea();" id="calculation-area-selector">
             <option value="general" selected>General Mechanics</option>
-            <option value="fluids1">Fluid (Bernoulli Eq.)</option>
+            <option value="fluids1">Fluids (Bernoulli Equation)</option>
+            <option value="fluids2">Fluids (Volumetric Flow Rate Q)</option>
             <option value="materials">Strength of Materials</option>
             <option value="machine">Machine Design</option>
             <option value="rotational">Rotational Mechanics</option>
@@ -23,10 +24,10 @@
           </select> Section
         </h5>
         <br/>
-      <div id="general-mechanics-calculation-area" class="calculations-area">
+      <div style="display:none;" id="general-mechanics-calculation-area" class="calculations-area">
         <!-- Mass -->
         <label>Mass
-          <select id="mass-unit">
+          <select id="1mass-unit">
             <option value="kg" selected>kilograms (kg)</option>
             <option value="t">tons (t)</option>
             <option value="g">grams (g)</option>
@@ -34,23 +35,23 @@
           </select>
         </label>
         <br/>
-        <input type="number" id="mass" placeholder="Enter mass">
+        <input type="number" id="1mass" placeholder="Enter mass">
         <br/>
 
         <!-- Acceleration -->
         <label>Acceleration
-          <select id="acceleration-unit">
+          <select id="1acceleration-unit">
             <option value="m/s2" selected>m/s²</option>
             <option value="ft/s2">ft/s²</option>
           </select>
         </label>
         <br/>
-        <input type="number" id="acceleration" placeholder="Enter acceleration">
+        <input type="number" id="1acceleration" placeholder="Enter acceleration">
         <br/>
 
         <!-- Distance -->
         <label>Distance
-          <select id="distance-unit">
+          <select id="1distance-unit">
             <option value="m" selected>meters (m)</option>
             <option value="km">kilometers (km)</option>
             <option value="cm">centimeters (cm)</option>
@@ -60,22 +61,22 @@
           </select>
         </label>
         <br/>
-        <input type="number" id="distance" placeholder="Enter distance">
+        <input type="number" id="1distance" placeholder="Enter distance">
         <br/>
 
         <!-- Angle -->
         <label>Angle
-          <select id="angle-unit">
+          <select id="1angle-unit">
             <option value="deg" selected>degrees (°)</option>
             <option value="rad">radians (rad)</option>
           </select>
         </label>
         <br/>
-        <input type="number" id="angle" placeholder="Enter angle">
+        <input type="number" id="1angle" placeholder="Enter angle">
 
         <!-- Time -->
         <label>Time
-          <select id="time-unit">
+          <select id="1time-unit">
             <option value="s" selected>seconds (s)</option>
             <option value="ms">milliseconds (ms)</option>
             <option value="us">microseconds (µs)</option>
@@ -84,16 +85,16 @@
           </select>
         </label>
         <br/>
-        <input type="number" id="time" placeholder="Enter time">
+        <input type="number" id="1time" placeholder="Enter time">
         <br/>
         <button onclick="Calculate();">Calculate</button> 
         <div class="results">
-            <p id="force">Force = ma</p>
-            <p id="work">Work = FdCos(θ)</p>
-            <p id="power">Power = Work/Time or Velocity * Force</p>
-            <p id="velocity">Velocity = Distance/Time or Power/Force</p>
-            <p id="kinetic-energy">Kinetic Energy = mv²/2</p>
-            <p id="torque">Torque = Fd*Sin(θ)</p>
+            <p id="1force-result">Force = ma</p>
+            <p id="1work-result">Work = FdCos(θ)</p>
+            <p id="1power-result">Power = Work/Time or Velocity * Force</p>
+            <p id="1velocity-result">Velocity = Distance/Time or Power/Force</p>
+            <p id="1kinetic-energy-result">Kinetic Energy = mv²/2</p>
+            <p id="1torque-result">Torque = Fd*Sin(θ)</p>
         </div>
       </div>
       <div style="display:none;" id="fluid-bernoulli-calculation-area" class="calculation-area">
@@ -102,42 +103,68 @@
         <hr>
         <label>Pressure at Point 1 (Pa)</label>
         <br/>
-        <input type="number" id="P1" placeholder="Enter pressure at point 1">
+        <input type="number" id="2P1" placeholder="Enter pressure at point 1">
         <br/>
         <label>Velocity at Point 1 (m/s)</label>
         <br/>
-        <input type="number" id="v1" placeholder="Enter velocity at point 1">
+        <input type="number" id="2v1" placeholder="Enter velocity at point 1">
         <br/>
         <label>Height at Point 1 (m)</label>
         <br/>
-        <input type="number" id="z1" placeholder="Enter height at point 1">
+        <input type="number" id="2z1" placeholder="Enter height at point 1">
         <br/>
         <hr>
         <label>Pressure at Point 2 (Pa)</label>
         <br/>
-        <input type="number" id="P2" placeholder="Enter pressure at point 2">
+        <input type="number" id="2P2" placeholder="Enter pressure at point 2">
         <br/>
         <label>Velocity at Point 2 (m/s)</label>
         <br/>
-        <input type="number" id="v2" placeholder="Enter velocity at point 2">
+        <input type="number" id="2v2" placeholder="Enter velocity at point 2">
         <br/>
         <label>Height at Point 2 (m)</label>
         <br/>
-        <input type="number" id="z2" placeholder="Enter height at point 2">
+        <input type="number" id="2z2" placeholder="Enter height at point 2">
         <br/>
         <hr>
         <label>Fluid Density (kg/m³)</label>
         <br/>
-        <input type="number" id="rho" placeholder="Enter fluid density">
+        <input type="number" id="2rho" placeholder="Enter fluid density">
         <br/>
 
         <label>Gravity (m/s²)</label>
         <br/>
-        <input type="number" id="g" placeholder="Enter gravity" value="9.81">
+        <input type="number" id="2g" placeholder="Enter gravity" value="9.81">
         <br/>
         <button onclick="CalculateFluids();">Calculate</button> 
         <div class="results">
             <p id="bernoulli-result">P₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂</p>
+        </div>
+      </div>
+      <div id="volumetric-flow-rate-calculation-area" class="calculation-area">
+        <h3>Volumetric Flow Rate Q <h5>(leave the unknown variable empty)</h5></h3>
+        <hr>
+
+        <label>Pipe Diameter (meters)</label>
+        <br/>
+        <input type="number" id="3diameter" placeholder="Enter pipe diameter">
+        <br/>
+
+        <label>Fluid Velocity (m/s)</label>
+        <br/>
+        <input type="number" id="3velocity" placeholder="Enter fluid velocity">
+        <br/>
+
+        <label>Volumetric Flow Rate Q (m³/h)</label>
+        <br/>
+        <input type="number" id="3flow-rate" placeholder="Enter volumetric flow rate">
+        <br/>
+        <button onclick="calculateFlowRate()">Calculate</button>
+        <div class="results">
+            <p id="3velocity-result"></p>
+            <p id="3velocity-result"></p>
+            <p id="3flowrate-result">q = π(d/2)²v*3600</p>
+
         </div>
       </div>
     </div>

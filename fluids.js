@@ -1,19 +1,19 @@
 function CalculateFluids() {
     // Pressures
-    let p1 = Number(document.getElementById("P1").value) || NaN;
-    let p2 = Number(document.getElementById("P2").value) || NaN;
+    let p1 = Number(document.getElementById("2P1").value) || NaN;
+    let p2 = Number(document.getElementById("2P2").value) || NaN;
 
     // Velocities
-    let v1 = Number(document.getElementById("v1").value) || NaN;
-    let v2 = Number(document.getElementById("v2").value) || NaN;
+    let v1 = Number(document.getElementById("2v1").value) || NaN;
+    let v2 = Number(document.getElementById("2v2").value) || NaN;
 
     // Heights
-    let z1 = Number(document.getElementById("z1").value) || NaN;
-    let z2 = Number(document.getElementById("z2").value) || NaN;
+    let z1 = Number(document.getElementById("2z1").value) || NaN;
+    let z2 = Number(document.getElementById("2z2").value) || NaN;
 
     // Fluid properties
-    let rho = Number(document.getElementById("rho").value);
-    let g = Number(document.getElementById("g").value);
+    let rho = Number(document.getElementById("2rho").value);
+    let g = Number(document.getElementById("2g").value);
 
     let result = "";
     let formula = "P₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂";
@@ -44,4 +44,26 @@ function CalculateFluids() {
     document.getElementById("bernoulli-result").innerHTML =
         "<p><strong>Formula:</strong> " + formula + "</p>" +
         "<p><strong>Result:</strong> " + result + "</p>";
+}
+
+function CalculateFlowRate(){
+  let d = Number(document.getElementById("3diameter").value) || NaN;
+  let v = Number(document.getElementById("3velocity").value) || NaN;
+  let Q = Number(document.getElementById("3flow-rate").value) || NaN;
+
+  if(isNaN(d)){
+    d = Math.sqrt(Q / (Math.PI * v * 3600)) * 2;
+    document.getElementById("3diameter-result").value = d.toFixed(3);
+  } 
+  else if(isNaN(v)){
+    v = Q / (Math.PI * (d/2)**2 * 3600);
+    document.getElementById("3velocity-result").value = v.toFixed(3);
+  } 
+  else if(isNaN(Q)){
+    Q = Math.PI * (d/2)**2 * v * 3600;
+    document.getElementById("3flow-rate-result").value = Q.toFixed(3);
+  } 
+  else {
+    result = "No variable to solve — all inputs provided!";
+  }
 }
