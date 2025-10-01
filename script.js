@@ -31,8 +31,11 @@ function Calculate(){
         distance = distance * 0.3048;
     } else if(distanceunit == "in"){
         distance = distance * 0.0254;
+    } else if(distanceunit == "km"){
+        distance = distance * 1000;
     }
 
+    if(!angle) angle = 0; // default to 0 if empty
     if(angleunit == "deg"){
         angle = angle * (Math.PI / 180); 
     }
@@ -47,14 +50,37 @@ function Calculate(){
         time *= 3600;
     }
 
-    var force = mass * acceleration; //F = m*a;
-    var work = force * distance * Math.cos(angle); //work = Fdcos(angle)
-    var power = work/time;
+    var force = mass * acceleration; // F = m*a
+    var work = force * distance * Math.cos(angle); // work = Fdcos(angle)
+
+    var power;
+    if(time != 0){
+        power = work / time;
+    } else {
+        power = 0;
+    }
+
     var torque = force * distance * Math.sin(angle);
 
-    document.getElementById("force").textContent = "Force = "+force.toFixed(2);
-    document.getElementById("work").textContent = "Work = "+work.toFixed(2);
-    document.getElementById("power").textContent = "Power = "+power.toFixed(2);
-    document.getElementById("torque").textContent = "Torque = "+torque.toFixed(2);
+    var velocity;
+    if(time != 0){
+        velocity = distance / time;
+    } else if(force != 0){
+        velocity = power / force;
+    } else {
+        velocity = 0;
+    }
 
+    var kineticenergy = (mass * (velocity ** 2)) / 2; // fixed exponent
+
+    console.log(power/force);
+    console.log(distance/time);
+    console.log(velocity);
+
+    document.getElementById("force").textContent = "Force = "+force.toFixed(2)+" N";             // Newtons
+    document.getElementById("work").textContent = "Work = "+work.toFixed(2)+" J";               // Joules
+    document.getElementById("power").textContent = "Power = "+power.toFixed(2)+" W";           // Watts
+    document.getElementById("velocity").textContent = "Velocity = "+velocity.toFixed(2)+" m/s"; // meters per second
+    document.getElementById("kinetic-energy").textContent = "Kinetic Energy = "+kineticenergy.toFixed(2)+" J"; // Joules
+    document.getElementById("torque").textContent = "Torque = "+torque.toFixed(2)+" N·m";       // Newton-meters
 }

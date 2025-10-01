@@ -10,6 +10,8 @@
 <body>
 <div class="calculator">
     <h2 style="text-align:center;">Engineering Calculator Prototype</h2>
+    <h3 style="text-align:center;">General Mechanics Section</h3>
+
     <br/>
 
 <!-- Mass -->
@@ -40,6 +42,7 @@
 <label>Distance
   <select id="distance-unit">
     <option value="m" selected>meters (m)</option>
+    <option value="km">kilometers (km)</option>
     <option value="cm">centimeters (cm)</option>
     <option value="mm">millimeters (mm)</option>
     <option value="ft">feet (ft)</option>
@@ -77,7 +80,9 @@
 <div class="results">
     <p id="force">Force = ma</p>
     <p id="work">Work = FdCos(θ)</p>
-    <p id="power">Power = Work/Time</p>
+    <p id="power">Power = Work/Time or Velocity * Force</p>
+    <p id="velocity">Velocity = Distance/Time or Power/Force</p>
+    <p id="kinetic-energy">Kinetic Energy = mv²/2</p>
     <p id="torque">Torque = Fd*Sin(θ)</p>
 </div>
 </div>
