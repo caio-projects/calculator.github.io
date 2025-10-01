@@ -16,7 +16,7 @@ function CalculateFluids() {
     let g = Number(document.getElementById("g").value);
 
     let result = "";
-    let formula = "P₁ + ½ ρ v₁² + ρ g z₁ = P₂ + ½ ρ v₂² + ρ g z₂";
+    let formula = "P₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂";
 
     // Determine which variable is missing
     if (isNaN(p1)) {

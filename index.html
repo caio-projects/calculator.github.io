@@ -99,37 +99,33 @@
       <div style="display:none;" id="fluid-bernoulli-calculation-area" class="calculation-area">
         <!-- Bernoulli Inputs -->
         <h3>Bernoulli Equation <h5>(leave the unknown variable empty)</h5></h3>
-
+        <hr>
         <label>Pressure at Point 1 (Pa)</label>
         <br/>
         <input type="number" id="P1" placeholder="Enter pressure at point 1">
         <br/>
-
-        <label>Pressure at Point 2 (Pa)</label>
-        <br/>
-        <input type="number" id="P2" placeholder="Enter pressure at point 2">
-        <br/>
-
         <label>Velocity at Point 1 (m/s)</label>
         <br/>
         <input type="number" id="v1" placeholder="Enter velocity at point 1">
         <br/>
-
-        <label>Velocity at Point 2 (m/s)</label>
-        <br/>
-        <input type="number" id="v2" placeholder="Enter velocity at point 2">
-        <br/>
-
         <label>Height at Point 1 (m)</label>
         <br/>
         <input type="number" id="z1" placeholder="Enter height at point 1">
         <br/>
-
+        <hr>
+        <label>Pressure at Point 2 (Pa)</label>
+        <br/>
+        <input type="number" id="P2" placeholder="Enter pressure at point 2">
+        <br/>
+        <label>Velocity at Point 2 (m/s)</label>
+        <br/>
+        <input type="number" id="v2" placeholder="Enter velocity at point 2">
+        <br/>
         <label>Height at Point 2 (m)</label>
         <br/>
         <input type="number" id="z2" placeholder="Enter height at point 2">
         <br/>
-
+        <hr>
         <label>Fluid Density (kg/m³)</label>
         <br/>
         <input type="number" id="rho" placeholder="Enter fluid density">
@@ -141,7 +137,7 @@
         <br/>
         <button onclick="CalculateFluids();">Calculate</button> 
         <div class="results">
-            <p id="bernoulli-result"></p>
+            <p id="bernoulli-result">P₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂</p>
         </div>
       </div>
     </div>
