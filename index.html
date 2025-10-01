@@ -11,18 +11,17 @@
     <div class="calculator">
         <h2 style="text-align:center;">Engineering Calculator Prototype</h2>
         <h5 style="text-align:center;">
-          <select name="" id="">
+          <select onchange="CalculationArea();" id="calculation-area-selector">
             <option value="general" selected>General Mechanics</option>
-            <option value="fluids">Fluid Mechanics</option>
+            <option value="fluids1">Fluid (Bernoulli Eq.)</option>
             <option value="materials">Strength of Materials</option>
             <option value="machine">Machine Design</option>
             <option value="rotational">Rotational Mechanics</option>
             <option value="thermodynamics">Thermodynamics</option>
             <option value="refrigeration">Refrigeration & HVAC</option>
-        </select> Section</h5>
-
+          </select> Section
+        </h5>
         <br/>
-
       <div id="general-mechanics-calculation-area" class="calculations-area">
         <!-- Mass -->
         <label>Mass
@@ -96,6 +95,64 @@
             <p id="torque">Torque = Fd*Sin(θ)</p>
         </div>
       </div>
+      <div style="display:none;" id="fluid-bernoulli-calculation-area" class="calculation-area">
+        <!-- Bernoulli Inputs -->
+        <h3>Bernoulli Equation</h3>
+
+        <label>Pressure at Point 1 (Pa)</label>
+        <br/>
+        <input type="number" id="P1" placeholder="Enter pressure at point 1">
+        <br/>
+
+        <label>Pressure at Point 2 (Pa)</label>
+        <br/>
+        <input type="number" id="P2" placeholder="Enter pressure at point 2">
+        <br/>
+
+        <label>Velocity at Point 1 (m/s)</label>
+        <br/>
+        <input type="number" id="v1" placeholder="Enter velocity at point 1">
+        <br/>
+
+        <label>Velocity at Point 2 (m/s)</label>
+        <br/>
+        <input type="number" id="v2" placeholder="Enter velocity at point 2">
+        <br/>
+
+        <label>Height at Point 1 (m)</label>
+        <br/>
+        <input type="number" id="z1" placeholder="Enter height at point 1">
+        <br/>
+
+        <label>Height at Point 2 (m)</label>
+        <br/>
+        <input type="number" id="z2" placeholder="Enter height at point 2">
+        <br/>
+
+        <label>Fluid Density (kg/m³)</label>
+        <br/>
+        <input type="number" id="rho" placeholder="Enter fluid density">
+        <br/>
+
+        <label>Gravity (m/s²)</label>
+        <br/>
+        <input type="number" id="g" placeholder="Enter gravity" value="9.81">
+        <br/><br/>
+      </div>
     </div>
   </body>
+  <script>
+    function CalculationArea(){
+      var bernoulli = document.getElementById("fluid-bernoulli-calculation-area");
+      var general = document.getElementById("general-mechanics-calculation-area");
+      var selector = document.getElementById("calculation-area-selector").value;
+      if(selector == "general"){
+        general.style.display = "block";
+        bernoulli.style.display = "none";
+      } else if(selector == "fluids1"){
+        general.style.display = "none";
+        bernoulli.style.display = "block";
+      }
+    }
+  </script>
 </html>
