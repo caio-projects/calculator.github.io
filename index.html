@@ -23,78 +23,78 @@
 
         <br/>
 
-    <div id="general-mechanics-calculation-area" class="calculations-area">
-      <!-- Mass -->
-      <label>Mass
-        <select id="mass-unit">
-          <option value="kg" selected>kilograms (kg)</option>
-          <option value="t">tons (t)</option>
-          <option value="g">grams (g)</option>
-          <option value="lb">pounds (lb)</option>
-        </select>
-      </label>
-      <br/>
-      <input type="number" id="mass" placeholder="Enter mass">
-      <br/>
+      <div id="general-mechanics-calculation-area" class="calculations-area">
+        <!-- Mass -->
+        <label>Mass
+          <select id="mass-unit">
+            <option value="kg" selected>kilograms (kg)</option>
+            <option value="t">tons (t)</option>
+            <option value="g">grams (g)</option>
+            <option value="lb">pounds (lb)</option>
+          </select>
+        </label>
+        <br/>
+        <input type="number" id="mass" placeholder="Enter mass">
+        <br/>
 
-      <!-- Acceleration -->
-      <label>Acceleration
-        <select id="acceleration-unit">
-          <option value="m/s2" selected>m/s²</option>
-          <option value="ft/s2">ft/s²</option>
-        </select>
-      </label>
-      <br/>
-      <input type="number" id="acceleration" placeholder="Enter acceleration">
-      <br/>
+        <!-- Acceleration -->
+        <label>Acceleration
+          <select id="acceleration-unit">
+            <option value="m/s2" selected>m/s²</option>
+            <option value="ft/s2">ft/s²</option>
+          </select>
+        </label>
+        <br/>
+        <input type="number" id="acceleration" placeholder="Enter acceleration">
+        <br/>
 
-      <!-- Distance -->
-      <label>Distance
-        <select id="distance-unit">
-          <option value="m" selected>meters (m)</option>
-          <option value="km">kilometers (km)</option>
-          <option value="cm">centimeters (cm)</option>
-          <option value="mm">millimeters (mm)</option>
-          <option value="ft">feet (ft)</option>
-          <option value="in">inches (in)</option>
-        </select>
-      </label>
-      <br/>
-      <input type="number" id="distance" placeholder="Enter distance">
-      <br/>
+        <!-- Distance -->
+        <label>Distance
+          <select id="distance-unit">
+            <option value="m" selected>meters (m)</option>
+            <option value="km">kilometers (km)</option>
+            <option value="cm">centimeters (cm)</option>
+            <option value="mm">millimeters (mm)</option>
+            <option value="ft">feet (ft)</option>
+            <option value="in">inches (in)</option>
+          </select>
+        </label>
+        <br/>
+        <input type="number" id="distance" placeholder="Enter distance">
+        <br/>
 
-      <!-- Angle -->
-      <label>Angle
-        <select id="angle-unit">
-          <option value="deg" selected>degrees (°)</option>
-          <option value="rad">radians (rad)</option>
-        </select>
-      </label>
-      <br/>
-      <input type="number" id="angle" placeholder="Enter angle">
+        <!-- Angle -->
+        <label>Angle
+          <select id="angle-unit">
+            <option value="deg" selected>degrees (°)</option>
+            <option value="rad">radians (rad)</option>
+          </select>
+        </label>
+        <br/>
+        <input type="number" id="angle" placeholder="Enter angle">
 
-      <!-- Time -->
-      <label>Time
-        <select id="time-unit">
-          <option value="s" selected>seconds (s)</option>
-          <option value="ms">milliseconds (ms)</option>
-          <option value="us">microseconds (µs)</option>
-          <option value="min">minutes (min)</option>
-          <option value="h">hours (h)</option>
-        </select>
-      </label>
-      <br/>
-      <input type="number" id="time" placeholder="Enter time">
-      <br/>
-      <button onclick="Calculate();">Calculate</button> 
-      <div class="results">
-          <p id="force">Force = ma</p>
-          <p id="work">Work = FdCos(θ)</p>
-          <p id="power">Power = Work/Time or Velocity * Force</p>
-          <p id="velocity">Velocity = Distance/Time or Power/Force</p>
-          <p id="kinetic-energy">Kinetic Energy = mv²/2</p>
-          <p id="torque">Torque = Fd*Sin(θ)</p>
-      </div>
+        <!-- Time -->
+        <label>Time
+          <select id="time-unit">
+            <option value="s" selected>seconds (s)</option>
+            <option value="ms">milliseconds (ms)</option>
+            <option value="us">microseconds (µs)</option>
+            <option value="min">minutes (min)</option>
+            <option value="h">hours (h)</option>
+          </select>
+        </label>
+        <br/>
+        <input type="number" id="time" placeholder="Enter time">
+        <br/>
+        <button onclick="Calculate();">Calculate</button> 
+        <div class="results">
+            <p id="force">Force = ma</p>
+            <p id="work">Work = FdCos(θ)</p>
+            <p id="power">Power = Work/Time or Velocity * Force</p>
+            <p id="velocity">Velocity = Distance/Time or Power/Force</p>
+            <p id="kinetic-energy">Kinetic Energy = mv²/2</p>
+            <p id="torque">Torque = Fd*Sin(θ)</p>
+        </div>
       </div>
     </div>
   </body>
