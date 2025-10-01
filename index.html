@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="general.js"></script>
+    <script src="fluids.js"></script>
     <title>Prototype Calculator for Engineers</title>
 </head>
   <body>
@@ -97,7 +98,7 @@
       </div>
       <div style="display:none;" id="fluid-bernoulli-calculation-area" class="calculation-area">
         <!-- Bernoulli Inputs -->
-        <h3>Bernoulli Equation</h3>
+        <h3>Bernoulli Equation <h5>(leave the unknown variable empty)</h5></h3>
 
         <label>Pressure at Point 1 (Pa)</label>
         <br/>
@@ -137,7 +138,11 @@
         <label>Gravity (m/s²)</label>
         <br/>
         <input type="number" id="g" placeholder="Enter gravity" value="9.81">
-        <br/><br/>
+        <br/>
+        <button onclick="CalculateFluids();">Calculate</button> 
+        <div class="results">
+            <p id="bernoulli-result"></p>
+        </div>
       </div>
     </div>
   </body>
