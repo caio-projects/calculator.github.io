@@ -1,83 +1,72 @@
 :root{
-    --main-bg-color: white;
-    --main-font: monospace;
-    --main-color: rgb(34, 34, 34);
-}
+    --main-bg:#202020;
+    --secondary-bg:#252525;
+    --main-txt-color:white;
+    --main-font: Arial, monospace;
+    --secondary-color:rgb(2, 174, 231);
+}   
 
 body{
-    background-color:var(--main-bg-color);
+    color:var(--main-txt-color);
     font-family:var(--main-font);
-    color:var(--main-color);
+    background-color:var(--main-bg);
     text-align:center;
-    text-decoration:none;
+    align-items:center;
+    justify-content:center;
+    display:flex;
+    height:100vh;
+    transition-duration:0.5s;
 }
 
-body *{
-    background-color:var(--main-bg-color);
-    font-family:var(--main-font);
-    color:var(--main-color);
-    text-align:center;
-    text-decoration:none;
-    transition-duration:0.2s;
-    font-size:20px;
-}
-
-.sidenav{
-    z-index:3;
-    width:75%;
-    height:100%;
-    z-index: 1;
-    background-color:var(--main-bg-color);
-    position:fixed;
-    margin:none;
-    top:0%;
-    right:0%;
-    padding-left:0px;
-    user-select:none;
-}
-
-#back{
-    color:red;
-}
-a{
-    text-align:center;
-    width:100%;
-    vertical-align:top;
-    height:30px;
-    padding:5px;
-    margin:none;
-    display:inline-block;
-}
-
-button:hover, a:hover, #back:hover{
-    background-color:gray;
-    color:var(--main-color);
-}
-
-#darken-screen{
-    z-index:1;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    position:fixed;
-    margin:0px;
-    background-color:rgba(0,0,0, 0.4);
-}
-
-.dropdown{
-    border-style:ridge;
-    margin:2px;
-}
-.dropdown-topnav{
-    padding:10px;
-    border-bottom-style:ridge;
-}
-.dropdown-content{
-    display:inline-block;
+.calculator{
+    padding:30px;
     text-align:left;
+    background-color:var(--secondary-bg);
+    border-radius:10px;
+    width:450px;
+    
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.dropdown-content input{
-    margin:15px;
+.calculator *{
+    margin:4px;
+}
+input{
+    border-radius:5px;
+    width:96.5%;
+    padding:8px;
+    border:none;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:5px;
+    background-color:var(--secondary-color);
+    font-weight:bold;
+    color:white;
+    transition-duration:0.5s;
+
+}
+
+button:hover{
+    color:black;
+    background-color:gray;
+}
+
+select{
+    border:none;
+    padding:5px;
+    border-radius:3px;
+}
+
+.results{
+    background-color:#181818;
+    font-family:monospace;
+    width:100%;
+    text-align:center;
+    padding-top:20px;
+    padding-bottom:20px;
+    border-radius:5px;
 }
