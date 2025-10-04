@@ -31,7 +31,7 @@ body{
 .calculator *{
     margin:4px;
 }
-input{
+input[type=number]{
     border-radius:5px;
     width:96.5%;
     padding:8px;

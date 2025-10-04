@@ -25,7 +25,7 @@
           </select> Section
         </h5>
         <br/>
-      <div id="general-mechanics-calculation-area" class="calculation-area">
+      <div style="display:none;" id="general-mechanics-calculation-area" class="calculation-area">
         <!-- Mass -->
         <label>Mass
           <select id="1mass-unit">
@@ -178,6 +178,30 @@
           <p id="reynolds-result"></p>
         </div>
       </div>
+      <div  id="hydrostatic-pressure-calculation-area" class="calculation-area">
+        <h3>Hydrostatic Pressure <h5>(leave the unknown variable empty)</h5></h3>
+        <hr>
+
+        <label>Pressure at Fluid's Surface (P₀​) [Pa]</label><br/>
+        <input onchange="AtmIn5();" id="atm-box" style="align-self:left;" checked type="checkbox"></input> atmospheric pressure? (101325)
+        <input type="number" id="5pressure1" value="101325" placeholder="often atmospheric pressure"><br/>
+
+        <label>Fluid's Density (ρ) [kg/m³]</label><br/>
+        <input type="number" id="5density" placeholder="Enter the density"><br/>
+
+        <label>Gravity (g) [m/s²]</label><br/>
+        <input type="number" id="5gravity" value="9.81" placeholder="Enter the value"><br/>
+
+        <label>Depth below fluid's surface(h) [m]</label><br/>
+        <input type="number" id="5depth" placeholder="Enter depth"><br/>
+
+        <button onclick="CalculateHydrostaticPressure()">Calculate</button>
+
+        <div class="results">
+          <p>P = P₀ + ρ g h</p>
+          <p id="hydrostatic-pressure-result"></p>
+        </div>
+      </div>
     </div>
   </body>
   <script>
@@ -208,6 +232,16 @@
         bernoulli.style.display = "none";
         flowrate.style.display = "none";
         reynolds.style.display = "block";
+      }
+    }
+
+    function AtmIn5(){
+      var checkbox = document.getElementById("atm-box");
+      var input_pressure1 = document.getElementById("5pressure1");
+      if(checkbox.checked){
+        input_pressure1.value = 101325;
+      }else{
+        input_pressure1.value = 0;
       }
     }
   </script>
