@@ -1,4 +1,4 @@
-function Calculate(){
+function CalculateGeneralMechanics(){
     var mass         = document.getElementById("1mass").value;
     var acceleration = document.getElementById("1acceleration").value;
     var distance     = document.getElementById("1distance").value;

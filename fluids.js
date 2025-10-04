@@ -103,3 +103,18 @@ function CalculateReynoldsNumber() {
 
     document.getElementById("reynolds-result").innerText = result;
 }
+
+function CalculateHydrostaticPressure(){
+    let Po = Number(document.getElementById("5pressure1").value) || NaN;
+    let rho = Number(document.getElementById("5density").value) || NaN;
+    let g = Number(document.getElementById("5gravity").value);
+    let h = Number(document.getElementById("5depth").value) || NaN;
+    let result = document.getElementById("hydrostatic-pressure-result");
+    
+    if(isNaN(Po) || isNaN(rho) || isNaN(g) || isNaN(h)){
+        result.innerText="Lacking variables."
+    }else{
+        var P = Po + rho*g*h;
+        result.innerText = P;
+    }
+}

@@ -17,6 +17,7 @@
             <option value="fluids1">Fluids (Bernoulli Equation)</option>
             <option value="fluids2">Fluids (Volumetric Flow Rate Q)</option>
             <option value="fluids3">Fluids (Reynolds Number)</option>
+            <option value="fluids4">Fluids (Hydrostatic Pressure)</option>
             <option value="materials">Strength of Materials</option>
             <option value="machine">Machine Design</option>
             <option value="rotational">Rotational Mechanics</option>
@@ -25,7 +26,7 @@
           </select> Section
         </h5>
         <br/>
-      <div style="display:none;" id="general-mechanics-calculation-area" class="calculation-area">
+      <div id="general-mechanics-calculation-area" class="calculation-area">
         <!-- Mass -->
         <label>Mass
           <select id="1mass-unit">
@@ -80,7 +81,7 @@
         </label><br/>
         <input type="number" id="1time" placeholder="Enter time"><br/>
 
-        <button onclick="Calculate()">Calculate</button>
+        <button onclick="CalculateGeneralMechanics()">Calculate</button>
 
         <div class="results">
           <p id="1force-result">Force = m × a</p>
@@ -178,8 +179,8 @@
           <p id="reynolds-result"></p>
         </div>
       </div>
-      <div  id="hydrostatic-pressure-calculation-area" class="calculation-area">
-        <h3>Hydrostatic Pressure <h5>(leave the unknown variable empty)</h5></h3>
+      <div style="display:none;" id="hydrostatic-pressure-calculation-area" class="calculation-area">
+        <h3>Hydrostatic Pressure</h3>
         <hr>
 
         <label>Pressure at Fluid's Surface (P₀​) [Pa]</label><br/>
@@ -192,7 +193,7 @@
         <label>Gravity (g) [m/s²]</label><br/>
         <input type="number" id="5gravity" value="9.81" placeholder="Enter the value"><br/>
 
-        <label>Depth below fluid's surface(h) [m]</label><br/>
+        <label>Depth below fluid's surface (h) [m]</label><br/>
         <input type="number" id="5depth" placeholder="Enter depth"><br/>
 
         <button onclick="CalculateHydrostaticPressure()">Calculate</button>
@@ -206,42 +207,40 @@
   </body>
   <script>
     function CalculationArea(){
-      var bernoulli = document.getElementById("fluid-bernoulli-calculation-area");
-      var flowrate = document.getElementById("volumetric-flow-rate-calculation-area");
-      var general = document.getElementById("general-mechanics-calculation-area");
-      var reynolds = document.getElementById("reynolds-number-calculation-area");
+      let bernoulli = document.getElementById("fluid-bernoulli-calculation-area");
+      let flowrate = document.getElementById("volumetric-flow-rate-calculation-area");
+      let general = document.getElementById("general-mechanics-calculation-area");
+      let reynolds = document.getElementById("reynolds-number-calculation-area");
+      let hydrostaticpressure = document.getElementById("hydrostatic-pressure-calculation-area");
 
-      var selector = document.getElementById("calculation-area-selector").value;
+      let selector = document.getElementById("calculation-area-selector").value;
+
+      general.style.display = "none";
+      bernoulli.style.display = "none";
+      flowrate.style.display = "none";
+      reynolds.style.display = "none";
+      hydrostaticpressure.style.display = "none";
+
       if(selector == "general"){
         general.style.display = "block";
-        bernoulli.style.display = "none";
-        flowrate.style.display = "none";
-        reynolds.style.display = "none";
       } else if(selector == "fluids1"){
-        general.style.display = "none";
         bernoulli.style.display = "block";
-        flowrate.style.display = "none";
-        reynolds.style.display = "none";
       } else if(selector == "fluids2"){
-        general.style.display = "none";
-        bernoulli.style.display = "none";
         flowrate.style.display = "block";
-        reynolds.style.display = "none";
       } else if(selector == "fluids3"){
-        general.style.display = "none";
-        bernoulli.style.display = "none";
-        flowrate.style.display = "none";
         reynolds.style.display = "block";
+      }else if(selector == "fluids4"){
+        hydrostaticpressure.style.display = "block";
       }
     }
 
     function AtmIn5(){
-      var checkbox = document.getElementById("atm-box");
-      var input_pressure1 = document.getElementById("5pressure1");
+      let checkbox = document.getElementById("atm-box");
+      let input_pressure1 = document.getElementById("5pressure1");
       if(checkbox.checked){
         input_pressure1.value = 101325;
       }else{
-        input_pressure1.value = 0;
+        input_pressure1.value = 1;
       }
     }
   </script>
