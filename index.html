@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <script src="general.js"></script>
     <script src="fluids.js"></script>
     <title>Prototype Calculator for Engineers</title>
 </head>
   <body>
     <div class="calculator">
-        <h2 style="text-align:center;">Engineering Calculator Prototype</h2>
-        <h5 style="text-align:center;">
+      <h2 style="text-align:center;">Engineering Calculator Prototype</h2>
+      <h5 style="text-align:center;">
           <select onchange="CalculationArea();" id="calculation-area-selector">
-            <option value="general" selected>General Mechanics</option>
+            <option value="conversion" selected>Conversion of Units</option>
+            <option value="general">General Mechanics</option>
             <option value="fluids1">Fluids (Bernoulli Equation)</option>
             <option value="fluids2">Fluids (Volumetric Flow Rate Q)</option>
             <option value="fluids3">Fluids (Reynolds Number)</option>
@@ -24,9 +26,43 @@
             <option value="thermodynamics">Thermodynamics</option>
             <option value="refrigeration">Refrigeration & HVAC</option>
           </select> Section
-        </h5>
+      </h5>
+      <br/>
+      <div id="conversion-of-units-calculation-area" class="calculation-area">
+        <!-- Value Input -->
+        <label for="value">Enter Value</label>
+        <input style="padding:15px;" type="number" id="value" placeholder="Enter number" />
         <br/>
-      <div id="general-mechanics-calculation-area" class="calculation-area">
+
+        <!-- Category Selector -->
+        <label for="category">Category</label>
+        <select style="padding:7px;font-size:medium;" id="category">
+          <option value="mass">Mass</option>
+          <option value="length">Length</option>
+          <option value="area">Area</option>
+          <option value="volume">Volume</option>
+          <option value="time">Time</option>
+          <option value="force">Force</option>
+          <option value="pressure">Pressure</option>
+          <option value="energy">Energy</option>
+        </select>
+        <br/>
+
+        <!-- From Unit -->
+        <label for="unit1">From</label>
+        <select style="padding:7px;font-size:medium;" id="unit1"></select>
+
+        <!-- To Unit -->
+        <label for="unit2">To</label>
+        <select style="padding:7px;font-size:medium;" id="unit2"></select>
+        <br/>
+
+        <button onclick="ConvertUnits();">Convert</button>
+        <div class="results">
+          <p id="units-result"></p>
+        </div>
+      </div>
+      <div style="display:none;" id="general-mechanics-calculation-area" class="calculation-area">
         <!-- Mass -->
         <label>Mass
           <select id="1mass-unit">
@@ -205,43 +241,4 @@
       </div>
     </div>
   </body>
-  <script>
-    function CalculationArea(){
-      let bernoulli = document.getElementById("fluid-bernoulli-calculation-area");
-      let flowrate = document.getElementById("volumetric-flow-rate-calculation-area");
-      let general = document.getElementById("general-mechanics-calculation-area");
-      let reynolds = document.getElementById("reynolds-number-calculation-area");
-      let hydrostaticpressure = document.getElementById("hydrostatic-pressure-calculation-area");
-
-      let selector = document.getElementById("calculation-area-selector").value;
-
-      general.style.display = "none";
-      bernoulli.style.display = "none";
-      flowrate.style.display = "none";
-      reynolds.style.display = "none";
-      hydrostaticpressure.style.display = "none";
-
-      if(selector == "general"){
-        general.style.display = "block";
-      } else if(selector == "fluids1"){
-        bernoulli.style.display = "block";
-      } else if(selector == "fluids2"){
-        flowrate.style.display = "block";
-      } else if(selector == "fluids3"){
-        reynolds.style.display = "block";
-      }else if(selector == "fluids4"){
-        hydrostaticpressure.style.display = "block";
-      }
-    }
-
-    function AtmIn5(){
-      let checkbox = document.getElementById("atm-box");
-      let input_pressure1 = document.getElementById("5pressure1");
-      if(checkbox.checked){
-        input_pressure1.value = 101325;
-      }else{
-        input_pressure1.value = 1;
-      }
-    }
-  </script>
 </html>
