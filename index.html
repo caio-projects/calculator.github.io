@@ -101,38 +101,38 @@
         <!-- Bernoulli Inputs -->
         <h3>Bernoulli Equation <h5>(leave the unknown variable empty)</h5></h3>
         <hr>
-        <label>Pressure at Point 1 (Pa)</label>
+        <label>Pressure at Point 1 (P₁) [Pa]</label>
         <br/>
         <input type="number" id="2P1" placeholder="Enter pressure at point 1">
         <br/>
-        <label>Velocity at Point 1 (m/s)</label>
+        <label>Velocity at Point 1 (v₁) [m/s]</label>
         <br/>
         <input type="number" id="2v1" placeholder="Enter velocity at point 1">
         <br/>
-        <label>Height at Point 1 (m)</label>
+        <label>Height at Point 1 (z₁) [m]</label>
         <br/>
         <input type="number" id="2z1" placeholder="Enter height at point 1">
         <br/>
         <hr>
-        <label>Pressure at Point 2 (Pa)</label>
+        <label>Pressure at Point 2 (P₂) [Pa]</label>
         <br/>
         <input type="number" id="2P2" placeholder="Enter pressure at point 2">
         <br/>
-        <label>Velocity at Point 2 (m/s)</label>
+        <label>Velocity at Point 2 (v₂) [m/s]</label>
         <br/>
         <input type="number" id="2v2" placeholder="Enter velocity at point 2">
         <br/>
-        <label>Height at Point 2 (m)</label>
+        <label>Height at Point 2 (v₂) [m]</label>
         <br/>
         <input type="number" id="2z2" placeholder="Enter height at point 2">
         <br/>
         <hr>
-        <label>Fluid Density (kg/m³)</label>
+        <label>Fluid Density (ρ) [kg/m³]</label>
         <br/>
         <input type="number" id="2rho" placeholder="Enter fluid density">
         <br/>
 
-        <label>Gravity (m/s²)</label>
+        <label>Gravity (g) [m/s²]</label>
         <br/>
         <input type="number" id="2g" placeholder="Enter gravity" value="9.81">
         <br/>
@@ -145,17 +145,17 @@
         <h3>Volumetric Flow Rate Q <h5>(leave the unknown variable empty)</h5></h3>
         <hr>
 
-        <label>Pipe Diameter (meters)</label>
+        <label>Pipe Diameter (d) [m]</label>
         <br/>
         <input type="number" id="3diameter" placeholder="Enter pipe diameter">
         <br/>
 
-        <label>Fluid Velocity (m/s)</label>
+        <label>Fluid Velocity (v) [m/s]</label>
         <br/>
         <input type="number" id="3velocity" placeholder="Enter fluid velocity">
         <br/>
 
-        <label>Volumetric Flow Rate Q (m³/h)</label>
+        <label>Volumetric Flow Rate (q) [m³/s]</label>
         <br/>
         <input type="number" id="3flow-rate" placeholder="Enter volumetric flow rate">
         <br/>
@@ -167,6 +167,9 @@
             <p id="3flowrate-result"></p>
 
         </div>
+      </div>
+      <div id="reynolds-number-calculation-area" class="calculation-area">
+
       </div>
     </div>
   </body>
