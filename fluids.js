@@ -53,17 +53,25 @@ function CalculateFlowRate(){
 
   if(isNaN(d)){
     d = Math.sqrt(Q / (Math.PI * v * 3600)) * 2;
-    document.getElementById("3diameter-result").innerText = d.toFixed(3);
+    document.getElementById("3diameter-result").innerText = "d = "+d.toFixed(3);
+    document.getElementById("3velocity-result").innerText = "v = "+v.toFixed(3);
+    document.getElementById("3flowrate-result").innerText = "q = "+Q.toFixed(3);
   } 
   else if(isNaN(v)){
     v = Q / (Math.PI * (d/2)**2 * 3600);
-    document.getElementById("3velocity-result").innerText = v.toFixed(3);
+    document.getElementById("3diameter-result").innerText = "d = "+d.toFixed(3);
+    document.getElementById("3velocity-result").innerText = "v = "+v.toFixed(3);
+    document.getElementById("3flowrate-result").innerText = "q = "+Q.toFixed(3);
   } 
   else if(isNaN(Q)){
     Q = Math.PI * (d/2)**2 * v * 3600;
-    document.getElementById("3flowrate-result").innerText = Q.toFixed(3);
+    document.getElementById("3diameter-result").innerText = "d = "+d.toFixed(3);
+    document.getElementById("3velocity-result").innerText = "v = "+v.toFixed(3);
+    document.getElementById("3flowrate-result").innerText = "q = "+Q.toFixed(3);
   } 
   else {
-    result = "No variable to solve — all inputs provided!";
+    document.getElementById("3diameter-result").innerText = "No variable to solve — all inputs provided!";
+    document.getElementById("3velocity-result").innerText = "";
+    document.getElementById("3flowrate-result").innerText = "";
   }
 }
