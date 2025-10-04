@@ -24,7 +24,7 @@
           </select> Section
         </h5>
         <br/>
-      <div id="general-mechanics-calculation-area" class="calculations-area">
+      <div style="display:none;" id="general-mechanics-calculation-area" class="calculation-area">
         <!-- Mass -->
         <label>Mass
           <select id="1mass-unit">
@@ -33,10 +33,8 @@
             <option value="g">grams (g)</option>
             <option value="lb">pounds (lb)</option>
           </select>
-        </label>
-        <br/>
-        <input type="number" id="1mass" placeholder="Enter mass">
-        <br/>
+        </label><br/>
+        <input type="number" id="1mass" placeholder="Enter mass"><br/>
 
         <!-- Acceleration -->
         <label>Acceleration
@@ -44,10 +42,8 @@
             <option value="m/s2" selected>m/s²</option>
             <option value="ft/s2">ft/s²</option>
           </select>
-        </label>
-        <br/>
-        <input type="number" id="1acceleration" placeholder="Enter acceleration">
-        <br/>
+        </label><br/>
+        <input type="number" id="1acceleration" placeholder="Enter acceleration"><br/>
 
         <!-- Distance -->
         <label>Distance
@@ -59,10 +55,8 @@
             <option value="ft">feet (ft)</option>
             <option value="in">inches (in)</option>
           </select>
-        </label>
-        <br/>
-        <input type="number" id="1distance" placeholder="Enter distance">
-        <br/>
+        </label><br/>
+        <input type="number" id="1distance" placeholder="Enter distance"><br/>
 
         <!-- Angle -->
         <label>Angle
@@ -70,9 +64,8 @@
             <option value="deg" selected>degrees (°)</option>
             <option value="rad">radians (rad)</option>
           </select>
-        </label>
-        <br/>
-        <input type="number" id="1angle" placeholder="Enter angle">
+        </label><br/>
+        <input type="number" id="1angle" placeholder="Enter angle"><br/>
 
         <!-- Time -->
         <label>Time
@@ -83,93 +76,105 @@
             <option value="min">minutes (min)</option>
             <option value="h">hours (h)</option>
           </select>
-        </label>
-        <br/>
-        <input type="number" id="1time" placeholder="Enter time">
-        <br/>
-        <button onclick="Calculate();">Calculate</button> 
+        </label><br/>
+        <input type="number" id="1time" placeholder="Enter time"><br/>
+
+        <button onclick="Calculate()">Calculate</button>
+
         <div class="results">
-            <p id="1force-result">Force = ma</p>
-            <p id="1work-result">Work = FdCos(θ)</p>
-            <p id="1power-result">Power = Work/Time or Velocity * Force</p>
-            <p id="1velocity-result">Velocity = Distance/Time or Power/Force</p>
-            <p id="1kinetic-energy-result">Kinetic Energy = mv²/2</p>
-            <p id="1torque-result">Torque = Fd*Sin(θ)</p>
+          <p id="1force-result">Force = m × a</p>
+          <p id="1work-result">Work = F × d × cos(θ)</p>
+          <p id="1power-result">Power = Work / Time  or  F × v</p>
+          <p id="1velocity-result">Velocity = Distance / Time  or  Power / Force</p>
+          <p id="1kinetic-energy-result">Kinetic Energy = ½ m v²</p>
+          <p id="1torque-result">Torque = F × d × sin(θ)</p>
         </div>
       </div>
       <div style="display:none;" id="fluid-bernoulli-calculation-area" class="calculation-area">
         <!-- Bernoulli Inputs -->
         <h3>Bernoulli Equation <h5>(leave the unknown variable empty)</h5></h3>
         <hr>
-        <label>Pressure at Point 1 (P₁) [Pa]</label>
-        <br/>
-        <input type="number" id="2P1" placeholder="Enter pressure at point 1">
-        <br/>
-        <label>Velocity at Point 1 (v₁) [m/s]</label>
-        <br/>
-        <input type="number" id="2v1" placeholder="Enter velocity at point 1">
-        <br/>
-        <label>Height at Point 1 (z₁) [m]</label>
-        <br/>
-        <input type="number" id="2z1" placeholder="Enter height at point 1">
-        <br/>
-        <hr>
-        <label>Pressure at Point 2 (P₂) [Pa]</label>
-        <br/>
-        <input type="number" id="2P2" placeholder="Enter pressure at point 2">
-        <br/>
-        <label>Velocity at Point 2 (v₂) [m/s]</label>
-        <br/>
-        <input type="number" id="2v2" placeholder="Enter velocity at point 2">
-        <br/>
-        <label>Height at Point 2 (v₂) [m]</label>
-        <br/>
-        <input type="number" id="2z2" placeholder="Enter height at point 2">
-        <br/>
-        <hr>
-        <label>Fluid Density (ρ) [kg/m³]</label>
-        <br/>
-        <input type="number" id="2rho" placeholder="Enter fluid density">
-        <br/>
 
-        <label>Gravity (g) [m/s²]</label>
-        <br/>
-        <input type="number" id="2g" placeholder="Enter gravity" value="9.81">
-        <br/>
-        <button onclick="CalculateFluids();">Calculate</button> 
+        <label>Pressure at Point 1 (P₁) [Pa]</label><br/>
+        <input type="number" id="2P1" placeholder="Enter pressure at point 1"><br/>
+
+        <label>Velocity at Point 1 (v₁) [m/s]</label><br/>
+        <input type="number" id="2v1" placeholder="Enter velocity at point 1"><br/>
+
+        <label>Height at Point 1 (z₁) [m]</label><br/>
+        <input type="number" id="2z1" placeholder="Enter height at point 1"><br/>
+
+        <hr>
+
+        <label>Pressure at Point 2 (P₂) [Pa]</label><br/>
+        <input type="number" id="2P2" placeholder="Enter pressure at point 2"><br/>
+
+        <label>Velocity at Point 2 (v₂) [m/s]</label><br/>
+        <input type="number" id="2v2" placeholder="Enter velocity at point 2"><br/>
+
+        <label>Height at Point 2 (z₂) [m]</label><br/>
+        <input type="number" id="2z2" placeholder="Enter height at point 2"><br/>
+
+        <hr>
+
+        <label>Fluid Density (ρ) [kg/m³]</label><br/>
+        <input type="number" id="2rho" placeholder="Enter fluid density"><br/>
+
+        <label>Gravity (g) [m/s²]</label><br/>
+        <input type="number" id="2g" placeholder="Enter gravity" value="9.81"><br/>
+
+        <button onclick="CalculateFluids()">Calculate</button>
+
         <div class="results">
-            <p id="bernoulli-result">P₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂</p>
+          <p id="bernoulli-result">P₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂</p>
         </div>
       </div>
       <div style="display:none;" id="volumetric-flow-rate-calculation-area" class="calculation-area">
-        <h3>Volumetric Flow Rate Q <h5>(leave the unknown variable empty)</h5></h3>
+        <h3>Volumetric Flow Rate (Q) <h5>(leave the unknown variable empty)</h5></h3>
         <hr>
 
-        <label>Pipe Diameter (d) [m]</label>
-        <br/>
-        <input type="number" id="3diameter" placeholder="Enter pipe diameter">
-        <br/>
+        <label>Pipe Diameter (D) [m]</label><br/>
+        <input type="number" id="3diameter" placeholder="Enter pipe diameter"><br/>
 
-        <label>Fluid Velocity (v) [m/s]</label>
-        <br/>
-        <input type="number" id="3velocity" placeholder="Enter fluid velocity">
-        <br/>
+        <label>Fluid Velocity (v) [m/s]</label><br/>
+        <input type="number" id="3velocity" placeholder="Enter fluid velocity"><br/>
 
-        <label>Volumetric Flow Rate (q) [m³/s]</label>
-        <br/>
-        <input type="number" id="3flow-rate" placeholder="Enter volumetric flow rate">
-        <br/>
+        <label>Volumetric Flow Rate (Q) [m³/s]</label><br/>
+        <input type="number" id="3flow-rate" placeholder="Enter volumetric flow rate"><br/>
+
         <button onclick="CalculateFlowRate()">Calculate</button>
-        <div class="results">
-            <p>q = π(d/2)²v*3600</p>
-            <p id="3diameter-result"></p>
-            <p id="3velocity-result"></p>
-            <p id="3flowrate-result"></p>
 
+        <div class="results">
+          <p>Q = π × (D² / 4) × v</p>
+          <p id="3diameter-result"></p>
+          <p id="3velocity-result"></p>
+          <p id="3flowrate-result"></p>
         </div>
       </div>
-      <div id="reynolds-number-calculation-area" class="calculation-area">
+      <div style="display:none;" id="reynolds-number-calculation-area" class="calculation-area">
+        <h3>Reynolds Number <h5>(leave the unknown variable empty)</h5></h3>
+        <hr>
 
+        <label>Density of Fluid (ρ) [kg/m³]</label><br/>
+        <input type="number" id="4density" placeholder="Enter the density"><br/>
+
+        <label>Fluid Velocity (v) [m/s]</label><br/>
+        <input type="number" id="4velocity" placeholder="Enter the velocity"><br/>
+
+        <label>Pipe Diameter (D) [m]</label><br/>
+        <input type="number" id="4diameter" placeholder="Enter the diameter"><br/>
+
+        <label>Dynamic Viscosity (μ) [Pa·s]</label><br/>
+        <input type="number" id="4dynamic-viscosity" placeholder="Enter dynamic viscosity"><br/>
+
+        <label>Kinematic Viscosity (ν = μ/ρ) [m²/s]</label><br/>
+        <input type="number" id="4kinematic-viscosity" placeholder="Enter kinematic viscosity"><br/>
+
+        <button onclick="CalculateReynoldsNumber()">Calculate</button>
+
+        <div class="results">
+          <p>Re = (ρ × v × D) / μ  &nbsp; or &nbsp;  Re = (v × D) / ν</p>
+        </div>
       </div>
     </div>
   </body>

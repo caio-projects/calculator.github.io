@@ -12,14 +12,16 @@ function CalculateFluids() {
     let z2 = Number(document.getElementById("2z2").value) || NaN;
 
     // Fluid properties
-    let rho = Number(document.getElementById("2rho").value);
+    let rho = Number(document.getElementById("2rho").value) || NaN;
     let g = Number(document.getElementById("2g").value);
 
     let result = "";
     let formula = "P₁ + ½ρv₁² + ρgz₁ = P₂ + ½ρv₂² + ρgz₂";
 
     // Determine which variable is missing
-    if (isNaN(p1)) {
+    if(isNaN(rho)){
+      result = "Input fluid density please."
+    }else if (isNaN(p1)) {
         p1 = p2 + 0.5 * rho * (v2**2 - v1**2) + rho * g * (z2 - z1);
         result = "Calculated P₁: " + p1.toFixed(2) + " Pa";
     } else if (isNaN(p2)) {
@@ -77,5 +79,5 @@ function CalculateFlowRate(){
 }
 
 function CalculateReynoldsNumber(){
-  
+
 }
