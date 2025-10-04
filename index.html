@@ -16,6 +16,7 @@
             <option value="general" selected>General Mechanics</option>
             <option value="fluids1">Fluids (Bernoulli Equation)</option>
             <option value="fluids2">Fluids (Volumetric Flow Rate Q)</option>
+            <option value="fluids3">Fluids (Reynolds Number)</option>
             <option value="materials">Strength of Materials</option>
             <option value="machine">Machine Design</option>
             <option value="rotational">Rotational Mechanics</option>
@@ -24,7 +25,7 @@
           </select> Section
         </h5>
         <br/>
-      <div style="display:none;" id="general-mechanics-calculation-area" class="calculation-area">
+      <div id="general-mechanics-calculation-area" class="calculation-area">
         <!-- Mass -->
         <label>Mass
           <select id="1mass-unit">
@@ -174,6 +175,7 @@
 
         <div class="results">
           <p>Re = (ρ × v × D) / μ  &nbsp; or &nbsp;  Re = (v × D) / ν</p>
+          <p id="reynolds-result"></p>
         </div>
       </div>
     </div>
@@ -183,20 +185,29 @@
       var bernoulli = document.getElementById("fluid-bernoulli-calculation-area");
       var flowrate = document.getElementById("volumetric-flow-rate-calculation-area");
       var general = document.getElementById("general-mechanics-calculation-area");
+      var reynolds = document.getElementById("reynolds-number-calculation-area");
 
       var selector = document.getElementById("calculation-area-selector").value;
       if(selector == "general"){
         general.style.display = "block";
         bernoulli.style.display = "none";
         flowrate.style.display = "none";
+        reynolds.style.display = "none";
       } else if(selector == "fluids1"){
         general.style.display = "none";
         bernoulli.style.display = "block";
         flowrate.style.display = "none";
+        reynolds.style.display = "none";
       } else if(selector == "fluids2"){
         general.style.display = "none";
         bernoulli.style.display = "none";
         flowrate.style.display = "block";
+        reynolds.style.display = "none";
+      } else if(selector == "fluids3"){
+        general.style.display = "none";
+        bernoulli.style.display = "none";
+        flowrate.style.display = "none";
+        reynolds.style.display = "block";
       }
     }
   </script>

@@ -78,6 +78,28 @@ function CalculateFlowRate(){
   }
 }
 
-function CalculateReynoldsNumber(){
+function CalculateReynoldsNumber() {
+    let rho = Number(document.getElementById("4density").value) || NaN;
+    let v = Number(document.getElementById("4velocity").value) || NaN;
+    let D = Number(document.getElementById("4diameter").value) || NaN;
+    let mu = Number(document.getElementById("4dynamic-viscosity").value) || NaN;
+    let nu = Number(document.getElementById("4kinematic-viscosity").value) || NaN;
 
+    let result = "";
+
+    if (isNaN(rho) || isNaN(v) || isNaN(D)) {
+        result = "Please input density, velocity, and diameter.";
+    } else if (!isNaN(mu)) {
+        // Use dynamic viscosity
+        let Re = (rho * v * D) / mu;
+        result = "Reynolds Number (using dynamic viscosity): " + Re.toFixed(2);
+    } else if (!isNaN(nu)) {
+        // Use kinematic viscosity
+        let Re = (v * D) / nu;
+        result = "Reynolds Number (using kinematic viscosity): " + Re.toFixed(2);
+    } else {
+        result = "Please provide either dynamic or kinematic viscosity.";
+    }
+
+    document.getElementById("reynolds-result").innerText = result;
 }
