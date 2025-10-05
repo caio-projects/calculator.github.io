@@ -88,6 +88,6 @@ function ConvertUnits() {
     return;
   }
 
-  const result = value * (units[category][from] / units[category][to]);
+  const result = value * (units[category][to] / units[category][from]);
   resultbox.textContent = `${value} ${from} = ${result.toFixed(6)} ${to}`;
 }
