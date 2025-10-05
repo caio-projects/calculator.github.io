@@ -4,6 +4,7 @@ function CalculationArea(){
   let general = document.getElementById("general-mechanics-calculation-area");
   let reynolds = document.getElementById("reynolds-number-calculation-area");
   let hydrostaticpressure = document.getElementById("hydrostatic-pressure-calculation-area");
+  let conversion = document.getElementById("conversion-of-units-calculation-area");
 
   let selector = document.getElementById("calculation-area-selector").value;
 
@@ -12,6 +13,7 @@ function CalculationArea(){
   flowrate.style.display = "none";
   reynolds.style.display = "none";
   hydrostaticpressure.style.display = "none";
+  conversion.style.display = "none";
 
   if(selector == "general"){
     general.style.display = "block";
@@ -23,6 +25,8 @@ function CalculationArea(){
     reynolds.style.display = "block";
   }else if(selector == "fluids4"){
     hydrostaticpressure.style.display = "block";
+  }else if(selector == "conversion"){
+    conversion.style.display = "block";
   }
 }
 
@@ -35,6 +39,8 @@ function AtmIn5(){
     input_pressure1.value = 1;
   }
 }
+
+
 const units = {
   mass: { "kg": 1, "g": 1000, "lb": 2.20462, "ton": 0.001 },
   length: { "m": 1, "cm": 100, "mm": 1000, "km": 0.001, "ft": 3.28084, "in": 39.3701 },
@@ -49,41 +55,39 @@ const units = {
   power: { "W": 1, "kW": 0.001, "hp": 0.00134102 }
 };
 
-// Populate units when category changes
+// Selectors
 const categorySelect = document.getElementById("category");
 const unit1Select = document.getElementById("unit1");
 const unit2Select = document.getElementById("unit2");
 
-function populateUnits() {
+// Populate unit lists
+function PopulateUnits() {
   const category = categorySelect.value;
   unit1Select.innerHTML = "";
   unit2Select.innerHTML = "";
+
   for (let u in units[category]) {
     unit1Select.innerHTML += `<option value="${u}">${u}</option>`;
     unit2Select.innerHTML += `<option value="${u}">${u}</option>`;
   }
 }
 
-categorySelect.addEventListener("change", populateUnits);
-window.addEventListener("load", populateUnits); // initial population
+categorySelect.addEventListener("change", PopulateUnits);
+window.addEventListener("load", PopulateUnits);
 
-// Conversion logic
-document.getElementById("convertButton").addEventListener("click", function() {
-  let value = parseFloat(document.getElementById("value").value);
+// Conversion
+function ConvertUnits() {
+  let value = Number(document.getElementById("value").value);
   let category = categorySelect.value;
   let from = unit1Select.value;
   let to = unit2Select.value;
+  let resultbox = document.getElementById("units-result");
 
   if (isNaN(value)) {
-    document.getElementById("conversionResult").textContent = "Enter a valid number.";
+    resultbox.textContent = "Enter a valid number.";
     return;
   }
 
-  let result = value * (units[category][to] / units[category][from]);
-  document.getElementById("conversionResult").textContent = `${value} ${from} = ${result} ${to}`;
-});
-
-function ConvertUnits(){
-    let value = document.getElementById("value");
-    
+  const result = value * (units[category][from] / units[category][to]);
+  resultbox.textContent = `${value} ${from} = ${result.toFixed(6)} ${to}`;
 }
