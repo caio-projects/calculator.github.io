@@ -1,32 +1,24 @@
 function CalculationArea(){
-  let bernoulli = document.getElementById("fluid-bernoulli-calculation-area");
-  let flowrate = document.getElementById("volumetric-flow-rate-calculation-area");
-  let general = document.getElementById("general-mechanics-calculation-area");
-  let reynolds = document.getElementById("reynolds-number-calculation-area");
-  let hydrostaticpressure = document.getElementById("hydrostatic-pressure-calculation-area");
-  let conversion = document.getElementById("conversion-of-units-calculation-area");
+  const areas = document.querySelectorAll(".calculation-area");
 
-  let selector = document.getElementById("calculation-area-selector").value;
+  // hide all
+  areas.forEach(area => area.style.display = "none");
 
-  general.style.display = "none";
-  bernoulli.style.display = "none";
-  flowrate.style.display = "none";
-  reynolds.style.display = "none";
-  hydrostaticpressure.style.display = "none";
-  conversion.style.display = "none";
+  const selector = document.getElementById("calculation-area-selector").value;
 
-  if(selector == "general"){
-    general.style.display = "block";
-  } else if(selector == "fluids1"){
-    bernoulli.style.display = "block";
-  } else if(selector == "fluids2"){
-    flowrate.style.display = "block";
-  } else if(selector == "fluids3"){
-    reynolds.style.display = "block";
-  }else if(selector == "fluids4"){
-    hydrostaticpressure.style.display = "block";
-  }else if(selector == "conversion"){
-    conversion.style.display = "block";
+  const map = {
+    general: "general-mechanics-calculation-area",
+    fluids1: "fluid-bernoulli-calculation-area",
+    fluids2: "volumetric-flow-rate-calculation-area",
+    fluids3: "reynolds-number-calculation-area",
+    fluids4: "hydrostatic-pressure-calculation-area",
+    conversion: "conversion-of-units-calculation-area"
+  };
+
+  const selected = document.getElementById(map[selector]);
+
+  if(selected){
+    selected.style.display = "block";
   }
 }
 

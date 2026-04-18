@@ -1,73 +1,123 @@
 :root{
-    --main-bg:#202020;
-    --secondary-bg:#252525;
-    --main-txt-color:white;
-    --main-font: Arial, monospace;
-    --secondary-color:rgb(2, 174, 231);
-}   
+    --main-bg: #121212;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --accent: #00c2ff;
+    --accent-hover: #0099cc;
+    --text: #f1f1f1;
+    --muted: #aaaaaa;
+    --radius: 12px;
+}
 
 body{
-    color:var(--main-txt-color);
-    font-family:var(--main-font);
-    background-color:var(--main-bg);
-    text-align:center;
-    align-items:center;
-    justify-content:center;
-    display:flex;
-    height:100vh;
-    transition-duration:0.5s;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #121212, #1a1a1a);
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text);
 }
 
+/* Card */
 .calculator{
-    padding:30px;
-    text-align:left;
-    background-color:var(--secondary-bg);
-    border-radius:10px;
-    width:450px;
-    
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    backdrop-filter: blur(15px);
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 25px;
+    width: 420px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.08);
 }
 
-.calculator *{
-    margin:4px;
-}
-input[type=number]{
-    border-radius:5px;
-    width:96.5%;
-    padding:8px;
-    border:none;
+input[type=number], select{
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    outline: none;
+    background: #1f1f1f;
+    color: var(--text);
+    font-size: 14px;
+
+    /* 🔥 KEY FIXES */
+    height: 44px;
+    line-height: 1;
+    appearance: none;
+
+    box-sizing: border-box;
 }
 
+input:hover, select:hover{
+    background: #262626;
+}
+
+input:focus, select:focus{
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 0 2px rgba(0,194,255,0.2);
+}
+
+.row{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* 🔥 important */
+}
+
+.row .input-group{
+    flex: 1 1 150px; /* grows + shrinks */
+}
+
+input::placeholder{
+    color: #777;
+}
+
+input:focus::placeholder{
+    color: transparent;
+}
+
+/* Button */
 button{
-    width:100%;
-    padding:10px;
-    border:none;
-    border-radius:5px;
-    background-color:var(--secondary-color);
-    font-weight:bold;
-    color:white;
-    transition-duration:0.5s;
-
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius);
+    border: none;
+    background: var(--accent);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
 }
 
 button:hover{
-    color:black;
-    background-color:gray;
+    background: var(--accent-hover);
+    transform: translateY(-2px);
 }
 
-select{
-    border:none;
-    padding:5px;
-    border-radius:3px;
-}
-
+/* Results box */
 .results{
-    background-color:#181818;
-    font-family:monospace;
-    width:100%;
-    text-align:left;
-    padding-top:20px;
-    padding-bottom:20px;
-    border-radius:5px;
-    font-size:larger;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: var(--radius);
+    background: #0f0f0f;
+    font-family: monospace;
+    color: #00ffcc;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* spacing */
+.calculator *{
+    margin-top: 8px;
+}
+
+label{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2px;
+    font-size: 14px;
+}
+
+/* make select stay nicely sized */
+label select{
+    width: 160px; /* adjust as you like */
 }
